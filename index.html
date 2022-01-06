@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Lousy Mindless Salesgirl</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="author" content="Kyle Richardson">
+<meta property="og:title" content="Lousy Mindless Salesgirl" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://lousymindlesssalesgirl.com" />
+<meta property="og:image" content="favicon-32x32.png" />
+
+<link rel="icon" type="image/png" href="favicon.ico" >
+<link rel="icon" type="image/png" href="favicon-16x16.png" >
+<link rel="icon" type="image/png" href="favicon-32x32.png" >
+
+	<style>
+		img {
+			display: none;
+		}
+
+		html, body {
+		  font-family: Times New Roman, serif;
+		  font-size: 45px;
+		  color: black;
+		  padding-left: 50px;
+		  padding-right: 50px;
+		  background: linen;
+		}
+
+
+		header {
+			text-align: center;
+			margin: 0px;
+		}
+
+		footer {
+			padding-bottom: 10px;
+			text-align: center;
+			margin: 0px;
+		}
+
+		hr {
+			border: 1px solid black;
+			padding-left: 45px;
+
+		}
+		nav {
+			position: sticky;
+			 position: -webkit-sticky;
+			top: 0;
+			background-color: linen;
+		}
+
+		a {
+			text-decoration: none;
+			color: violet;
+		}
+
+		a:hover {
+			color: violet;
+		}
+
+		p {
+		  padding: 0px;
+
+		}
+
+		input[type=text] {
+		  font-size: 45px;
+		  text-align: center;
+		  height: 45px;
+		  width: 400px;
+		  padding: 5px 1px;
+		  margin: 0px;
+		  border-top: none;
+		  border-left: none;
+		  border-right: none;
+		  border-color: black;
+		  border-bottom: solid;
+		  background-color: linen;
+		  color: black;
+		}
+
+
+		button {
+			display: table;
+			font-family: monospace;
+			font-size: .35em;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding: 10px 20px;
+			border-radius: 5%;
+			text-align: center;
+			background: linen;
+		}
+
+		button:hover {
+			display: table;
+			color: linen;'
+			box-shadow: 5px 5px 15px 2px violet;
+			font-family: monospace;
+			font-size: .35em;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding: 10px 20px;
+			border-radius: 5%;
+			text-align: center;
+			background-color: black;
+		}
+
+		button:active {
+		  transform: translateY(2px) translateX(2px);
+		}
+
+
+		#everything {
+			display: none;
+		}
+
+		#second {
+			display: none;
+			padding-top: 60px;
+		}
+
+		#third {
+			display: none;
+		}
+
+		#clock {
+			color: violet;
+			font-size: .35em;
+			font-family: monospace;
+			display: inline-block;
+			top: 20px;
+			right: 30vw;
+		}
+
+		.story {
+			max-width: 850px;
+
+		}
+
+		.caption {
+			font-size: .35em;
+			font-family: monospace;
+			display: block;
+		}
+
+		.quote {
+			text-align: center;
+			display: inline;
+		}
+
+		.button {
+			cursor: pointer;
+			display: inline-block;
+			font-family: monospace;
+			font-size: .35em;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding: 10px 20px;
+			border-radius: 5%;
+			text-align: center;
+		}
+
+		.button:hover {
+			display: inline-block;
+			font-family: monospace;
+			font-size: .35em;
+			color: linen;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding: 10px 20px;
+			background-color: black;
+			border-radius: 5%;
+			text-align: center;
+		}
+
+		.button:active {
+		  transform: translateY(2px) translateX(2px);
+		}
+
+		.nav-item {
+			display: inline-block;
+			font-family: monospace;
+			font-size: .35em;
+			margin: 0 auto;
+			padding: 10px 20px;
+			text-align: center;
+		}
+
+		marquee {
+		font-family: sans-serif;
+		  color: violet;
+		    font-size: 1em;
+		}
+
+
+		::selection {
+		  color: linen;
+		  background: violet;
+		}
+
+
+		/*clock*/
+
+		body::-webkit-scrollbar {
+ display: none;
+}
+
+@font-face {
+font-family: Olympia;
+src: url(Olympia-Script.woff);
+}
+
+#timeismoney {
+margin: 60px 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.clock {
+  width: 600px;
+  height: 600px;
+  border: 3px dotted violet;
+  border-radius: 50%;
+  position: relative;
+}
+
+.eye {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: violet;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+}
+
+.hand {
+  position: absolute;
+  width: 2px;
+  
+  bottom: 50%;
+  left: 50%;
+  
+  transform-origin: 50% 100%;
+}
+
+.container {
+    width: 100px;
+  
+    left: -50px;
+    top: 0;
+  
+    transform: rotate(-90deg);
+    position: relative;
+}
+
+.hour, .minute, .second {
+  height: 75px;
+}
+
+.container p {
+	letter-spacing: -1px;
+	font-family: Olympia;
+	font-size: 25px;
+  padding-left: 35px;
+  width: 300px; 
+}
+
+.second  p {
+	color: violet;
+}
+
+		@media screen and (max-width: 550px) {
+
+		 html, body {
+		  font-family: Times New Roman, serif;
+		  font-size: 25px;
+		  color: black;
+		  padding-left: 20px;
+		  padding-right: 20px;
+		  background: linen;
+		}
+
+		input[type=text] {
+		  font-size: 25px;
+		  text-align: center;
+		  height: 25px;
+		  width: 200px;
+		  padding: 5px 1px;
+		  margin: 0px;
+		  border-top: none;
+		  border-left: none;
+		  border-right: none;
+		  border-color: black;
+		  border-bottom: solid;
+		  background-color: linen;
+		  color: black;
+		}
+
+		nav {
+			padding: 10px 0px 0px 0px;
+		}
+
+		.nav-item {
+			display: inline-block;
+			font-family: monospace;
+			font-size: .35em;
+			margin: 0 auto;
+			padding: 10px 10px;
+			text-align: center;
+		}
+
+		.button {
+			display: block;		
+		}
+
+		.button:hover {
+			display: block;
+			font-family: monospace;
+			font-size: .35em;
+			color: linen;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding: 10px 20px;
+			background-color: black;
+			border-radius: 5%;
+			text-align: center;
+		}
+
+		.button:active {
+		  transform: translateY(2px) translateX(2px);
+		}
+
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+ 		 $(".button").click(function(){
+    	$("#everything").fadeToggle();
+    	$("#timeismoney").toggle();
+
+    	 $(this).text(function(i, v){
+               return v === 'CLOCK IN' ? 'CLOCK OUT' : 'CLOCK IN'});
+   
+  });
+});
+
+		$(document).ready(function(){
+		  $(".btn1").click(function(){
+		    $("#second").show();
+		    $('html, body').animate({
+    		scrollTop: $("#second").offset().top}, 750);
+
+			  });
+
+		  $(".btn2").click(function(){
+		    $("#third").show();
+		    $('html, body').animate({
+    		scrollTop: $("#third").offset().top}, 1000);
+
+  });
+});
+
+	</script>
+</head>
+
+	<body>
+
+				<nav>
+							<div id="clockin"class="button">CLOCK IN</div>
+							<div id="clock" class="nav-item"></div>
+							<hr>
+				</nav>
+
+				
+<section id="timeismoney">
+	<div class="clock">
+		<div class="eye"></div>
+	  <div class="hand hour"><div class="container"><p>$$$$$$</p></div></div>
+	  <div class="hand minute"><div class="container"><p>Because I work</p></div></div>
+	  <div class="hand second"><div class="container"><p>I am nobody</p></div></div>
+	</div>
+</section>
+
+				
+				<div id="everything">
+				<header>
+							<div class="caption">Please fill out the fields below and I will assist you right away.</div>
+							<hr>
+				</header>
+
+				
+				<div id="first">
+							<div class="story">
+							<p>I didn&#146;t have enough food, so I started working at a 
+								<input type="text"
+								id="myText" value="place of work">.</p></div>
+
+							<div class="story">
+							<p>It was <input type="text" name="fname" value="year">. <br></p></div>
+
+							<div class="quote">
+							<p><em>Working for money is the omnipresent fact of American life.</em></p></div>
+
+							<div class="story">
+							<p>I wasn&#146;t allowed to <input type="text" name="fname" value="job purpose"> or make any decisions. My job was to hand people the <input type="text" id="myText2" value="product"> they wanted and take their money.</p></div>
+
+							<div class="quote">
+							<p><em>I am nobody because I work.</em></p></div>
+
+							<div class="quote">
+							<p align="center">***</p></div>
+
+							<button class="btn1" onclick="myFunction()">SUBMIT</button>
+							
+				</div>
+
+							
+
+				<div id="second">
+							<div class="story">	<p> I have to pretend I like the customers and love giving them <span id="text2"></span> no matter how they treat me.</p></div>
+
+							<div class="story"><p>The <span id="text1"></span> has many customers. Bosses have ideals and make sure its good and cheap. As soon as I dare to take the time to <input type="text" id="myText3" value="do hobby">, <input type="text" id="myText4" value="personal goal">, or <input type="text" id="myText5" value="form of rest">, a customer enters... </p></div>
+
+							<div class="quote"> <p><em>Because I work I am nobody.</em></p></div>
+			<button class="btn2" onclick="myFunction2()"> DO NOT SUBMIT</button>
+
+				</div>
+
+										
+
+				<div id="third">
+							<div class="story">
+							<p>Dare to take the time to... </p>
+							</div>
+
+							<marquee width="90%" direction="left" height="150px">
+								<span id="text3"></span> </marquee>
+
+								<marquee width="90%" direction="left" height="150px" scrolldelay="62">
+								<span id="text4"></span></marquee>
+
+								<marquee width="90%" direction="left" height="150px" scrolldelay="75">
+								<span id="text5"></span></marquee>
+
+					</div>
+					
+
+				<hr>
+
+						<footer class="caption">
+							 Excerpt from <em> &#8594; <a href="kathy.html">Blood and Guts in High School</em></a> by Kathy Acker, Pub. 1984
+						</footer>
+						</div>
+
+		<script>
+
+			function myFunction() {
+		
+
+			 var text1 = document.getElementById("myText").value;
+			    document.getElementById("text1").innerHTML = text1;
+
+			var text2 = document.getElementById("myText2").value;
+		    document.getElementById("text2").innerHTML = text2;
+
+		}
+
+		function myFunction2() {
+
+
+		    var text3 = document.getElementById("myText3").value;
+		    document.getElementById("text3").innerHTML = text3;
+
+		    var text4 = document.getElementById("myText4").value;
+		    document.getElementById("text4").innerHTML = text4;
+
+		    var text5 = document.getElementById("myText5").value;
+		    document.getElementById("text5").innerHTML = text5;
+		}
+
+		function GetClock(){
+
+				var d=new Date();
+				var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+				if(nhour==0){ap=" AM";nhour=12;}
+				else if(nhour<12){ap=" AM";}
+				else if(nhour==12){ap=" PM";}
+				else if(nhour>12){ap=" PM";nhour-=12;}
+
+				if(nmin<=9) nmin="0"+nmin;
+				if(nsec<=9) nsec="0"+nsec;
+
+				var clocktext=""+nhour+":"+nmin+":"+nsec+ap+"";
+				document.getElementById('clock').innerHTML=clocktext;
+			}
+
+				GetClock();
+				setInterval(GetClock,1000);
+	
+	function runClock() {
+  
+  var now = new Date()
+  
+  var hour = now.getHours() % 12
+  var min  = now.getMinutes()
+  var sec  = now.getSeconds()
+  var ms   = now.getMilliseconds()
+  
+  var clock = document.querySelector("div.clock")
+  var hourHand = clock.querySelector("div.hour")
+  var minHand  = clock.querySelector("div.minute")
+  var secHand  = clock.querySelector("div.second")
+  
+  var hourRotation = 30 * hour + (0.5 * min)
+  var minRotation = 6 * min + (0.1 * sec)
+  var secRotation = 6 * sec + 0.006 * ms
+  
+  hourHand.style.transform = "rotate(" + hourRotation + "deg)"
+  minHand.style.transform = "rotate(" + minRotation + "deg)"
+  secHand.style.transform = "rotate(" + secRotation + "deg)"
+  
+  requestAnimationFrame(runClock)
+}
+
+runClock();
+
+		</script>
+	 </body>
+ </html>
